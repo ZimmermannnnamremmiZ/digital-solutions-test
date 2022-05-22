@@ -1,0 +1,102 @@
+.title {
+  width: 1116px;
+  position: absolute;
+  height: 439px;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  overflow: hidden;
+
+  h2, p {
+    font-family: 'Alegreya Sans SC';
+    font-style: normal;
+    font-weight: 700;
+    color: #FFFFFF;
+  }
+
+  h2 {
+    position: absolute;
+    width: 100%;
+    margin-top: 157px;
+    font-size: 50px;
+    line-height: 60px;
+  }
+
+  p {
+    position: absolute;
+    width: 100%;
+    margin-top: 222px;
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  button {
+    position: absolute;
+    width: 205px;
+    height: 40px;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 354px;
+    z-index: 1;
+  }
+
+  .rectangle {
+    position: absolute;
+    width: 1116px;
+    height: 282px;
+    left: 50%;
+    transform: translateX(-50%) matrix(1, 0, 0, -1, 0, 0);
+    margin-left: -12px;
+    top: 144px;
+    background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.55) 23.22%, rgba(0, 0, 0, 0.14) 42.37%, rgba(0, 0, 0, 0) 56.3%);
+  }
+}
+
+.ellipse_1 {
+  position: absolute;
+  width: 1017px;
+  height: 156px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 190px;
+  background: radial-gradient(50% 50% at 50% 50%, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  z-index: 1;
+}
+
+.ellipse_2 {
+  position: absolute;
+  width: 593px;
+  height: 156px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 238px;
+  background: radial-gradient(50% 50% at 50% 50%, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  z-index: 1;
+}
+
+.tickets {
+
+  & * {
+    font-family: 'Alegreya Sans SC';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 40px;
+  }
+
+  &__title {
+    margin-top: 31px;
+  }
+
+  &__amount {
+
+    &::after{
+      content: ' 1000';
+      color: rgba(0, 0, 0, 0.41);
+
+
+    }
+  }
+}

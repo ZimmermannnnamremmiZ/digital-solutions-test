@@ -1,0 +1,48 @@
+.app__header {
+
+  a {
+    text-decoration: none;
+  }
+
+  max-width: 1116px;
+  margin: 0 auto;
+  height: 70px;
+  background: #101010;
+
+  .container {
+    align-items: center;
+  }
+
+  .app__title {
+
+    &-text {
+      font-family: 'Alegreya Sans SC';
+      text-transform: uppercase;
+      color: #FFFFFF;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 28px;
+      // line-height: 60px;
+    }
+  }
+
+  .app__menu {
+
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+
+    :nth-child(1) {
+      padding: 11.5px 40.5px;
+      background: #FFFFFF;
+    }
+
+    :nth-child(2) {
+      padding: 11.5px 57px;
+      background: #FFFFFF;
+      margin-left: 12px;
+    }
+  }
+}
