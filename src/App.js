@@ -1,10 +1,11 @@
 import {lazy, Suspense} from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import AppHeader from "./Components/appHeader/AppHeader";
-import Spinner from './Components/spinner/Spinner'
+import Spinner from './Components/spinner/Spinner';
 
 const Page404 = lazy(() => import('./Components/errorMessage/ErrorMessage'))
 const MainPage = lazy(() => import('./Components/pages/mainPage/MainPage'))
+const ProfilePage  = lazy(() => import('./Components/pages/profilePage/ProfilePage'))
 
 const App = () => {
     return (
@@ -18,7 +19,8 @@ const App = () => {
                                 {/* <Route path="/comics" element={<ComicsPage/>} />
                                 <Route path="/comics/:id" element={<SinglePage Component={SingleComicPage} dataType={'comic'}/>} /> */}
                                 <Route path="*" element={<Page404 />} />
-                                {/* <Route path="/characters/:id" element={<SinglePage Component={SingleCharPage} dataType={'character'}/>} /> */}
+                                {/* <Route path="/profile" element={<ProfilePage />} /> */}
+                                <Route path="/users/:id" element={<ProfilePage />} />
                             </Routes>
                         </Suspense>
                     </main>

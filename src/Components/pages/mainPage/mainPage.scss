@@ -100,3 +100,122 @@
     }
   }
 }
+
+.aboutPlatform {
+  flex: 1;
+
+  &__scroll-box {
+    margin-left: 42px;
+  }
+
+  &__title {
+    margin-top: 47px;
+    margin-bottom: 0;
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 40px;
+  }
+
+  &__description {
+    max-width: 326px;
+    margin-top: 16px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    color: #939393;
+
+    &-header {
+      max-width: 374px;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 20px;
+    }
+  }
+}
+
+.application {
+  margin-top: 47px;
+  position: relative;
+  flex: 1.2821;
+  height: 272px;
+  border: 1px solid #DADADA;
+  text-align: center;
+
+  &__title {
+    text-align: left;
+    margin-left: 26px;
+    margin-top: 13px;
+    margin-bottom: 9px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 40px;
+  }
+
+  &__textarea {
+    box-sizing: border-box;
+    padding: 10px 20px;
+    width: 90.165%;
+    border: 1px solid #0D1E4B;
+    height: 134px;
+    margin: 0 25px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 15px;
+    white-space: normal;
+
+    &::placeholder {
+      position: absolute;
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 11px;
+      line-height: 15px;
+      color: #969696;
+    }
+  }
+
+  &__submit {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    padding: 10px 20px;
+    background: #101010;
+    border: 1px solid #0D1E4B;
+    width: 101px;
+    height: 35px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 15px;
+    text-transform: capitalize;
+    color: #FFFFFF;
+  }
+}
+
+.about {
+  margin-top: 48px;
+  margin-bottom: 38px;
+
+  &__title {
+    margin-top: -20px;
+    flex: 1;
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 40px;
+  }
+
+  &__text {
+    flex: 5.3374;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #939393;
+  }
+}
