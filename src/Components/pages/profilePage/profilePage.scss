@@ -1,0 +1,101 @@
+.user {
+    &__header {
+        max-width: 1116px;
+        margin-top: 36px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &__name {
+        margin: 0;
+        padding-top: 11px;
+        padding-left: 18px;
+        flex: 1;
+        border: 1px solid #000000;
+        box-sizing: border-box;
+        height: 64px;
+        font-weight: 500;
+        font-size: 35px;
+        line-height: 40px;
+        color: #000000;
+    }
+
+    &__space {
+        border: 1px solid #000000;
+        box-sizing: border-box;
+        height: 64px;
+
+        &:nth-child(1) {
+            width: 53px;
+        }
+
+        &:nth-child(3) {
+            width: 62px;
+        }
+    }
+
+    &__data {
+        max-width: 1116px;
+        margin: 0 auto;
+        margin-top: -1px;
+
+        & * {
+            box-sizing: border-box;
+        }
+        
+        &-space {
+            height: 45px;
+            border: 1px solid #000000;
+
+            &:nth-child(1) {
+                width: 53px;
+            }
+
+            &:nth-child(7) {
+                width: 62px;
+            }
+        }
+
+        &-item {
+            border: 1px solid #000000;
+            height: 45px;
+
+            &:nth-child(2) {
+               min-width: 188px;
+            }
+            &:nth-child(3) {
+                min-width: 190px;
+            }
+            &:nth-child(4) {
+                flex: 1;
+            }
+        }
+    }
+
+    &__message-btn {
+        width: 176px;
+        height: 44px;
+        border: 1px solid #0D1E4B;
+        background: #101010;
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 11px;
+        line-height: 15px;
+        color: #FFFFFF;
+    }
+
+    &__offer-btn {
+        width: 247px;
+        height: 44px;
+        margin-left: 1px;
+        border: 1px solid #0D1E4B;
+        background: #101010;
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 11px;
+        line-height: 15px;
+        color: #FFFFFF;
+    }
+}

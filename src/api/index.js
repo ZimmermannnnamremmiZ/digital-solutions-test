@@ -35,6 +35,11 @@ export const useApi = () => {
       return users.map(_transformUser);
   }
 
+  const getUser = async (id) => {
+    const user = await request(`${_apiBase}/users/${id}`);
+    return _transformUser(user);
+}
+
   const getUserPosts = async (id) => {
       const posts = await request(`${_apiBase}/users/${id}/posts`);
       return posts.map(_transformPosts);
@@ -67,7 +72,8 @@ export const useApi = () => {
       process,
       setProcess,
       getAllUsers,
-      getUserPosts
+      getUserPosts,
+      getUser
   }
 }
 

@@ -1,26 +1,9 @@
 import { useState, useEffect, useMemo } from 'react';
 import useApi from '../../api';
-import Spinner from '../spinner/Spinner';
-import Page404 from '../errorMessage/ErrorMessage';
+import setContent from '../../utils/setContent';
 import Users from '../users/Users';
 
 import './userList.scss';
-
-const setContent = (process, Component, props, newItemLoading) => {
-  switch (process) {
-      case 'waiting':
-          return <Spinner />;
-      case 'loading':
-          return newItemLoading ? <Component {...props}/> : null;
-      case 'confirmed':
-          return <Component {...props}/>;
-      case 'error':
-          return <Page404 />;
-      default:
-          throw new Error('Unexpected process state')
-  }
-}
-
 
 const UserList = ({onUserSelected}) => {
 
