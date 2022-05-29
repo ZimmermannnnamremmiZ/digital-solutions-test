@@ -57,11 +57,13 @@ export const useApi = () => {
   const _transformUser = (user) => {
       return {
           id: user.id,
-          name: user.name,
+          fullName: user.name,
+          name: user.name.split(' ')[0],
           city: user.address?.city,
           username: user.username,
           phone: user.phone,
           email: user.email,
+          website: user.website,
           company: user.company?.name,
           bs: user.company?.bs
       }

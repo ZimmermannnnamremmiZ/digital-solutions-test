@@ -16,7 +16,7 @@ const App = () => {
                             <Routes>
                                 <Route path="/" element={<MainPage />} />
                                 <Route path="*" element={<Page404 />} />
-                                <Route path="/users/:id" element={<ProfilePage />} />
+                                <Route path="/users/:userId" element={<ProfilePage />} />
                             </Routes>
                         </Suspense>
                     </main>

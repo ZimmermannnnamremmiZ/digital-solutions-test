@@ -5,39 +5,21 @@ import Users from '../users/Users';
 
 import './userList.scss';
 
-const UserList = ({onUserSelected}) => {
+const UserList = () => {
 
-  const [users, setUsers] = useState([])
-  const [newItemLoading, setNewItemLoading] = useState(false)
+  const [users, setUsers] = useState(null)
   const {process, setProcess, getAllUsers} = useApi();
 
   useEffect(() => {
-    onRequest(true);
-    // eslint-disable-next-line
-  }, [])
-
-  const onUsersLoaded = (newCharacters) => {
-
-    setUsers(characters => [...characters, ...newCharacters])
-    setNewItemLoading(() => false)
-  }
-
-  const onRequest = (initial) => {
-    initial ? setNewItemLoading(false) : setNewItemLoading(true)
+    setProcess('loading');
     getAllUsers()
-        .then(onUsersLoaded)
-        .then(() => setProcess('confirmed'))
-  }
-
-  const data = {onUserSelected, users}
-
-  const elements = useMemo(() => {
-    return setContent(process, Users, data, newItemLoading)
-}, [process])
-
+      .then(users => setUsers(users))
+      .then(() => setProcess('confirmed'))
+  }, [])
+  
   return (
     <div className="users__list">
-        {elements}
+        {useMemo(() => setContent(process, Users, {users}), [process])}
     </div>
   )
 }

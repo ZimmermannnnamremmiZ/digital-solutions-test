@@ -1,65 +1,32 @@
-import { useState } from "react";
+import { useId } from "react";
 import { Link } from 'react-router-dom';
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel as SlickCarousel} from 'react-responsive-carousel';
+import arrDivide from "../../utils/divideArray";
 import './users.scss';
 
-const Users = ({users, onUserSelected}) => {
+const Users = ({users}) => {
 
-
-    const [currentSlide, setCurrentSlide] = useState(0)
-
-    const arrowStyles = {
-        position: 'absolute',
-        border: 'none',
-        zIndex: 3,
-        top: '50%',
-        transform: 'translateY(-50%)',
-        width: 30,
-        height: '100%',
-        background: 'rgba(0,0,0,0.2)',
-        cursor: 'pointer',
-        right: 0,
-    };
-
-    const getItem = (el) => {
-            setCurrentSlide(el)
-    }
+    const id = useId();
 
     return (
         <>
             <SlickCarousel showStatus={false}
                            showIndicators={false}
                            showThumbs={false}
-                           onChange={getItem}
-                           selectedItem={currentSlide}
-                           renderArrowNext={(onClickHandler, hasNext, label) =>
-                            (currentSlide+1)*4 < users.length
-                                ? hasNext && (
-                                    <button className='nextSlides' onClick={onClickHandler} title={label} style={{ ...arrowStyles}} />
-                                )
-                                : null
-                            }
+                           emulateTouch={true}
+                           swipeable={true}
             >
-                {users.map((item) => (
-                        <div
-                            className="user"
-
-                            key={item.id}
-                        >
-                            <div className="user__name">{item.name}</div>
-                            <div className="user__city">{item.city}</div>
-                            <Link to={`/users/${item.id}`}
-                                  href={item.homepage}
-                                  onClick={() => onUserSelected(item.id)}  // удалить если не понадобится
-                                  onKeyPress={(el) => {
-                                        if (el.key === ' ' || el.key === 'Enter') {
-                                            onUserSelected(item.id);
-                                        }
-                                    }}>Смотреть профиль</Link>
-                        </div>
-                ))}
+                    {arrDivide(users, 4).map(group => {
+                        return <div className="flex" key={id}>{
+                            group.map(user => (
+                                <div className="user" key={user.id}>
+                                    <div className="user__name">{user.fullName}</div>
+                                    <div className="user__city">{user.city}</div>
+                                    <Link to={`/users/${user.id}`} href={user.homepage}>Смотреть профиль</Link>
+                                </div>
+                    ))}</div>})}
             </SlickCarousel>
         </>
     )

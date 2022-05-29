@@ -1,4 +1,4 @@
-.user {
+.profile {
     &__header {
         max-width: 1116px;
         margin-top: 36px;
@@ -42,7 +42,7 @@
         & * {
             box-sizing: border-box;
         }
-        
+
         &-space {
             height: 45px;
             border: 1px solid #000000;
@@ -56,46 +56,98 @@
             }
         }
 
+        &-posts {
+            max-width: 1116px;
+            margin: 0 auto;
+            text-align: start;
+            box-sizing: border-box;
+            border: 1px solid #000000;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 17px;
+            color: #000000;
+            padding: 14px 64px;
+
+            li {
+                list-style-image: url("../../../resources/img/posts.svg");
+
+                &::first-letter{
+                    text-transform: capitalize;
+                };
+
+                &:nth-child(2), &:nth-child(3) {
+                    margin-top: 5px;
+                }
+            }
+        }
+
         &-item {
+            flex: 1;
+            text-align: center;
+            padding: 14px 18px;
             border: 1px solid #000000;
             height: 45px;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 17px;
+            color: #000000;
+            white-space: nowrap;
 
             &:nth-child(2) {
-               min-width: 188px;
+               text-align: left;
             }
-            &:nth-child(3) {
-                min-width: 190px;
-            }
-            &:nth-child(4) {
-                flex: 1;
+
+            &:nth-child(6) {
+                text-align: start;
+                padding-top: 5px;
+                & div::first-letter{
+                    text-transform: capitalize;
+                }
             }
         }
     }
 
-    &__message-btn {
-        width: 176px;
-        height: 44px;
-        border: 1px solid #0D1E4B;
-        background: #101010;
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 11px;
-        line-height: 15px;
-        color: #FFFFFF;
+}
+
+.post {
+    max-width: 1116px;
+    margin: 14px auto;
+    padding: 0 53px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+
+    &__container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        overflow-x: scroll;
     }
 
-    &__offer-btn {
-        width: 247px;
-        height: 44px;
-        margin-left: 1px;
-        border: 1px solid #0D1E4B;
-        background: #101010;
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 11px;
-        line-height: 15px;
-        color: #FFFFFF;
+    &__title {
+        margin-top: 27px;
+        margin-bottom: 15px;
+        font-weight: 500;
+        font-size: 35px;
+        line-height: 40px;
+    }
+
+    &__item {
+        width: 48.489%;
+        border: 1px solid #000000;
+
+        &:not(:nth-child(1)) {
+            margin-left: 19.24px;
+        }
+
+        &-title {
+            margin: 0;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 17px;
+            line-height: 23px;
+            text-transform: capitalize;
+        }
     }
 }

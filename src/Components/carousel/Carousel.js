@@ -12,7 +12,6 @@ const Carousel = () => {
                      showThumbs={false}
                      infiniteLoop={true}
                      dynamicHeight={true}
-                     
                      >
         <div className="carousel__img-container">
             <img className="carousel__img" src={slide} />
