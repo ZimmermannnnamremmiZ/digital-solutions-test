@@ -10,45 +10,46 @@ import './profilePage.scss';
 
 const ProfilePage = () => {
   const id = useId();
-  const [user, setUser] = useState(false);
-  const [posts, setPosts] = useState([]);
   const {userId} = useParams();
-  const {process, setProcess, getUser, getUserPosts} = useApi();
+  const [data, setData] = useState({user: false, posts: []});
+  const {getUser, getUserPosts} = useApi();
+
+  const fetchData = async () => {
+    const userData = await getUser(userId)
+    const postsData = await getUserPosts(userId)
+    setData({user: userData, posts: [...postsData]})
+  }
 
   useEffect(() => {
-    setProcess('waiting')
-    getUser(userId)
-      .then(user => setUser(user))
-      .then(() => getUserPosts(userId))
-      .then(posts => setPosts(posts))
-      .then(() => setProcess('confirmed'));
+    fetchData()
   }, [userId])
 
-  console.log('ddd')
+  
+  console.log('ssss')
 
   return(
     <>
         <div className='profile'>
           <div className='profile__header flex'>
             <div className='profile__space'></div>
-            <h2 className='profile__name'>{user.username}</h2>
+            <h2 className='profile__name'>{data.user.username}</h2>
             <div className='profile__space'></div>
           </div>
           <div className='profile__data flex'>
             <div className='profile__data-space'></div>
-            <div className='profile__data-item'>{user.name}</div>
-            <div className='profile__data-item'>{user.email}</div>
-            <div className='profile__data-item'>{user.phone}</div>
-            <div className='profile__data-item'>{user.website}</div>
+            <div className='profile__data-item'>{data.user.name}</div>
+            <div className='profile__data-item'>{data.user.email}</div>
+            <div className='profile__data-item'>{data.user.phone}</div>
+            <div className='profile__data-item'>{data.user.website}</div>
             <div className='profile__data-item'>
-              <div>{user.company}</div>
-              <div>{user.bs}</div>
+              <div>{data.user.company}</div>
+              <div>{data.user.bs}</div>
             </div>
             <div className='profile__data-space'></div>
           </div>
               <ul className='profile__data-posts'>
                 {/* как в задании, список из 3-х превью */}
-                {posts.map((el, i) => i<3 ? <li key={el.id}>{el.title}</li> : null)}
+                {data.posts.map((el, i) => i<3 ? <li key={el.id}>{el.title}</li> : null)}
               </ul>
           <div className='post'>
             <h2 className='post__title'>Посты</h2>
@@ -58,7 +59,7 @@ const ProfilePage = () => {
                              emulateTouch={true}
                              swipeable={true}
               >
-                {arrDivide(posts, 2).map(group => {
+                {arrDivide(data.posts, 2).map(group => {
                   return <div className='flex' key={id}>
                             {group.map(post => (
                               <div className='post__item' key={post.id}>

@@ -114,7 +114,9 @@
 .post {
     max-width: 1116px;
     margin: 14px auto;
-    padding: 0 53px;
+    padding-left: 53px;
+    padding-right: 53px;
+    padding-bottom: 22px;
     border: 1px solid #000000;
     box-sizing: border-box;
 
@@ -134,7 +136,9 @@
     }
 
     &__item {
-        width: 48.489%;
+        // width: 48.489%;
+        width: 490.76px;
+        height: 143px;
         border: 1px solid #000000;
 
         &:not(:nth-child(1)) {
