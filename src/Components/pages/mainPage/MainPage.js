@@ -2,10 +2,12 @@ import { useState } from "react";
 import CustomScroll from 'react-custom-scroll';
 
 import ErrorBoundary from '../../errorBoundary/ErrorBoundary';
-import Carousel from "../../carousel/Carousel";
 import UserList from "../../userList/UserList";
 import './mainPage.scss';
 import './customScroll.scss';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel as SlickCarousel} from 'react-responsive-carousel';
+import slide from '../../../resources/img/slide.png'
 
 
     const MainPage = () => {
@@ -27,7 +29,24 @@ import './customScroll.scss';
                         <div className="rectangle"></div>
                     </div>
                     <ErrorBoundary>
-                            <Carousel />
+                    <div className="carousel">
+                        <SlickCarousel showStatus={false}
+                                        showIndicators={false}
+                                        showThumbs={false}
+                                        infiniteLoop={true}
+                                        dynamicHeight={true}
+                                        >
+                            <div className="carousel__img-container">
+                                <img className="carousel__img" src={slide} alt={'slide_1'}/>
+                            </div>
+                            <div className="carousel__img-container">
+                                <img className="carousel__img" src={slide} alt={'slide_2'}/>
+                            </div>
+                            <div className="carousel__img-container">
+                                <img className="carousel__img" src={slide} alt={'slide_3'}/>
+                            </div>
+                        </SlickCarousel>
+                    </div>
                     </ErrorBoundary>
                     <div className="container">
                         <div className="tickets flex justify-sb">

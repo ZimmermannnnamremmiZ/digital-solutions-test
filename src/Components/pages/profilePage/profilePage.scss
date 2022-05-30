@@ -120,11 +120,8 @@
     border: 1px solid #000000;
     box-sizing: border-box;
 
-    &__container {
+    &__slide {
         display: flex;
-        flex-wrap: wrap;
-        align-items: baseline;
-        overflow-x: scroll;
     }
 
     &__title {
@@ -136,22 +133,76 @@
     }
 
     &__item {
-        // width: 48.489%;
-        width: 490.76px;
+        position: relative;
+        width: 48.489%;
         height: 143px;
         border: 1px solid #000000;
+        text-align: start;
+
+        &:hover {
+            background-color: rgb(234, 234, 234);
+            p {color: #000000}
+        }
+
+        &_selected {
+            height: auto;
+            min-height: 143px;
+
+            .post__item-body {
+                display: inline-table;
+            }
+
+            .post__item-title {
+                display: inline-table;
+            }
+        }
+
+
+
+
 
         &:not(:nth-child(1)) {
             margin-left: 19.24px;
         }
 
         &-title {
-            margin: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            margin-top: 14px;
+            margin-left: 34.91px;
+            margin-bottom: 0;
             font-style: normal;
             font-weight: 700;
             font-size: 17px;
             line-height: 23px;
             text-transform: capitalize;
         }
+
+        &-body {
+            height: 85px;
+            margin-top: 4px;
+            margin-left: 35px;
+            margin-right: 34.76px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            // три точки в конце 5-й строки, если высота более 85px
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 17px;
+            color: rgba(0, 0, 0, 0.41);
+        }
+    }
+}
+
+.carousel  {
+    .control-prev.control-arrow:before {
+      transform: none;
     }
 }

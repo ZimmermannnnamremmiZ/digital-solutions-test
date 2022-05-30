@@ -20,13 +20,15 @@ const Users = ({users}) => {
             >
                     {arrDivide(users, 4).map(group => {
                         return <div className="flex" key={id}>{
-                            group.map(user => (
-                                <div className="user" key={user.id}>
-                                    <div className="user__name">{user.fullName}</div>
-                                    <div className="user__city">{user.city}</div>
-                                    <Link to={`/users/${user.id}`} href={user.homepage}>Смотреть профиль</Link>
+                                group.map(user => (
+                                    <div className="user" key={user.id}>
+                                        <div className="user__name">{user.fullName}</div>
+                                        <div className="user__city">{user.city}</div>
+                                        <Link to={`/users/${user.id}`} href={user.homepage}>Смотреть профиль</Link>
+                                    </div>
+                                ))}
                                 </div>
-                    ))}</div>})}
+                    })}
             </SlickCarousel>
         </>
     )

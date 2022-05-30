@@ -51,27 +51,3 @@
     color: #FFFFFF;
   }
 }
-
-.nextSlides {
-  opacity: 0;
-
-  &::before {
-    margin: 0 5px;
-    display: inline-block;
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    border-right: 8px solid #fff;
-    transform: rotate(180deg);
-    content: '';
-  }
-
-  &:hover {
-    opacity: 1;
-    animation: opacity 0.5s;
-  }
-}
-
-@keyframes opacity {
-  from { opacity: 0; }
-  to { opacity: 1; }
- }
