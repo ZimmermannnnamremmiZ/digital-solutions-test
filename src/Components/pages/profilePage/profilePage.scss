@@ -69,15 +69,39 @@
             color: #000000;
             padding: 14px 64px;
 
+            &:hover {
+                background-color: rgb(234, 234, 234);
+            }
+
+
             li {
                 list-style-image: url("../../../resources/img/posts.svg");
+                &:nth-child(n+4) {display: none;}
+                &::first-letter{text-transform: capitalize};
+                &:not(:nth-child(1)) {margin-top: 5px}
+            }
 
-                &::first-letter{
-                    text-transform: capitalize;
-                };
+            &--active {
+                max-width: 1116px;
+                margin: 0 auto;
+                text-align: start;
+                box-sizing: border-box;
+                border: 1px solid #000000;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 17px;
+                color: #000000;
+                padding: 14px 64px;
 
-                &:nth-child(2), &:nth-child(3) {
-                    margin-top: 5px;
+                &:hover {
+                    background-color: rgb(234, 234, 234);
+                }
+
+                li {
+                    list-style-image: url("../../../resources/img/posts.svg");
+                    &::first-letter{text-transform: capitalize};
+                    &:not(:nth-child(1)) {margin-top: 5px}
                 }
             }
         }
@@ -147,6 +171,7 @@
         &_selected {
             height: auto;
             min-height: 143px;
+            
 
             .post__item-body {
                 display: inline-table;
@@ -157,12 +182,19 @@
             }
         }
 
-
-
-
-
         &:not(:nth-child(1)) {
             margin-left: 19.24px;
+        }
+
+        &-date {
+            position: absolute;
+            right: 22.76px;
+            top: 10px;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 16px;
+            text-transform: capitalize;
         }
 
         &-title {
@@ -171,8 +203,9 @@
             display: -webkit-box;
             -webkit-line-clamp: 1;
             -webkit-box-orient: vertical;
-            margin-top: 14px;
+            margin-top: 10px;
             margin-left: 34.91px;
+            margin-right: 20%;
             margin-bottom: 0;
             font-style: normal;
             font-weight: 700;
