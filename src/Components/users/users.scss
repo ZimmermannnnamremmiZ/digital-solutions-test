@@ -1,8 +1,11 @@
+@import '../../adaptive/adaptive.scss';
+
 .user {
   text-align: left;
   box-sizing: border-box;
   flex-shrink: 0;
   width: 239px;
+  @include respond-to(1180px) {width: 206px}
   height: 143px;
   border: 1px solid #DADADA;
   margin-right: 11px;

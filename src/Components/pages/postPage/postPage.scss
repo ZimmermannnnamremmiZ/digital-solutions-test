@@ -1,0 +1,125 @@
+.postSingle {
+    &__header {
+        margin-top: 40px;
+        box-sizing: border-box;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 40px;
+        color: #000000;
+
+        &:nth-child(1) {
+            margin-top: 47px;
+        }
+    }
+
+    &__title, &__body {
+        margin-top: 10px;
+        margin-bottom: 0;
+        box-sizing: border-box;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 40px;
+        color: rgba(0, 0, 0, 0.41);
+
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+}
+
+.comments{
+    margin-top: 20px;
+
+    &__header {
+        margin-top: 40px;
+        box-sizing: border-box;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 40px;
+        color: #000000;
+    }
+
+    &__item {
+        position: relative;
+        border: 1px solid;
+        padding: 25px 40px;
+        
+        &:not(:nth-child(1)) {
+            margin-top: 10px;
+        }
+
+        &-header {
+            margin: 0;
+            color: #000000e7;
+        }
+
+        &-owner {
+            position: absolute;
+            right: 40px;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        &-title, &-body {
+            color: rgba(0, 0, 0, 0.41);
+            &::first-letter {
+                text-transform: uppercase;
+            }
+        }
+    }
+      
+    &__add {
+        margin-top: 25px;
+        margin-bottom: 25px;
+        height: 30px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+}    
+
+.form {
+    padding: 40px;
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 60vh;
+    border: 1px solid;
+
+    &__item{
+        position: relative;
+        margin-top: 6%;
+
+        &-label {
+            position: absolute;
+            top: -30px;
+            font-size: 20px;
+        }
+
+        &-input {
+            min-width: 500px;
+            height: 40px;
+            padding: 0 20px;
+            font-family: Open Sans;
+            font-weight: 500;
+            font-size: 17px;
+            color: rgba(0, 0, 0, 0.41);
+        }
+
+        &-textarea {
+            min-width: 500px;
+            max-width: 500px;
+            height: 200px;
+            padding: 20px;
+            font-family: Open Sans;
+            font-weight: 500;
+            font-size: 17px;
+            color: rgba(0, 0, 0, 0.41);
+        }
+    }
+
+    &__submit {
+        height: 35px;
+    }
+}

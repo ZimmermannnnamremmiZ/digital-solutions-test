@@ -1,4 +1,5 @@
 @import './fonts/fonts.css';
+@import './adaptive/adaptive.scss';
 
 body {
   margin: 0;
@@ -19,6 +20,7 @@ h2 {
 
 .container {
   width: 995px;
+  @include respond-to(1180px) {width: 857px};
   padding: 0 61px;
   margin: 0 auto;
 }

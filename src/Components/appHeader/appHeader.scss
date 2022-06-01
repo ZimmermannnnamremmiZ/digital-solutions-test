@@ -1,3 +1,5 @@
+@import '../../adaptive/adaptive.scss';
+
 .app__header {
 
   a {
@@ -5,6 +7,7 @@
   }
 
   max-width: 1116px;
+  @include respond-to(1180px) {width: 980px}
   margin: 0 auto;
   height: 70px;
   background: #101010;
