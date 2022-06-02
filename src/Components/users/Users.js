@@ -1,5 +1,6 @@
 import { useId } from "react";
 import { Link } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive'
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel as SlickCarousel} from 'react-responsive-carousel';
@@ -10,6 +11,20 @@ const Users = ({users}) => {
 
     const id = useId();
 
+    // для изменения количества слайдов при изменении размера окна или разрешения экрана
+    const minWidth1024px = useMediaQuery({ minWidth: 1024 })
+    const minWidth849px = useMediaQuery({ minWidth: 849 })
+    const widthForSlider = () => {
+        if (minWidth1024px) {
+            return 4
+        } else if (minWidth849px) {
+            return 3
+        } else {
+            return 2
+        }
+    }
+
+
     return (
         <>
             <SlickCarousel showStatus={false}
@@ -18,7 +33,7 @@ const Users = ({users}) => {
                            emulateTouch={true}
                            swipeable={true}
             >
-                    {arrDivide(users, 4).map(group => {
+                    {arrDivide(users, widthForSlider()).map(group => {
                         return <div className="flex" key={id}>{
                                 group.map(user => (
                                     <div className="user" key={user.id}>

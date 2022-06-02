@@ -1,8 +1,20 @@
 @import '../../../adaptive/adaptive.scss';
 
+main {
+  @include respond-to(848px) {
+    &:hover {
+          .carousel-slider .control-arrow {
+            opacity: 0.5;
+          }
+      };
+  }
+}
+
 .title {
   width: 1116px;
   @include respond-to(1180px) {width: 980px}
+  @include respond-to(1024px) {width: 875px}
+  @include respond-to(910px) {width: 100%}
   position: absolute;
   height: 439px;
   text-align: center;
@@ -38,6 +50,10 @@
     position: absolute;
     width: 205px;
     height: 40px;
+    @include respond-to(768px) {
+      height: 60px;
+      font-size: 17px;
+    }
     text-align: center;
     left: 50%;
     transform: translateX(-50%);
@@ -49,6 +65,7 @@
     position: absolute;
     width: 1116px;
     @include respond-to(1180px) {width: 980px}
+    @include respond-to(910px) {width: 100%}
     height: 282px;
     left: 50%;
     transform: translateX(-50%) matrix(1, 0, 0, -1, 0, 0);
@@ -62,6 +79,7 @@
   position: absolute;
   width: 1017px;
   @include respond-to(1180px) {width: 880px}
+  @include respond-to(1180px) {width: 795px}
   height: 156px;
   left: 50%;
   transform: translateX(-50%);
@@ -109,6 +127,16 @@
 
 .aboutPlatform {
   flex: 1;
+  @include respond-to(910px) {
+    flex: none;
+    width: 40%;
+  }
+  align-self: start;
+
+  @include respond-to(848px) {
+    flex: none;
+    width: 100%;
+  }
 
   &__scroll-box {
     margin-left: 42px;
@@ -124,18 +152,22 @@
 
   &__description {
     max-width: 326px;
+    @include respond-to(848px) {max-width: none}
     margin-top: 16px;
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
+    @include respond-to(848px) {font-size: 16px}
     line-height: 24px;
     color: #939393;
 
     &-header {
       max-width: 374px;
+      @include respond-to(848px) {max-width: none}
       font-style: normal;
       font-weight: 700;
       font-size: 15px;
+      @include respond-to(848px) {font-size: 17px}
       line-height: 20px;
     }
   }
@@ -144,8 +176,12 @@
 .application {
   margin-top: 47px;
   position: relative;
-  flex: 1.2821;
-  height: 272px;
+  width: 55.98%;
+  @include respond-to(848px) {
+    flex: none;
+    width: 100%;  
+  }
+  min-height: 272px;
   border: 1px solid #DADADA;
   text-align: center;
 
@@ -164,13 +200,16 @@
     box-sizing: border-box;
     padding: 10px 20px;
     width: 90.165%;
+    max-width: 90.165%;
+    min-width: 90.165%;
     border: 1px solid #0D1E4B;
-    height: 134px;
+    min-height: 134px;
     margin: 0 25px;
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 600;
     font-size: 11px;
+    @include respond-to(848px) {font-size: 15px}
     line-height: 15px;
     white-space: normal;
 
@@ -180,15 +219,17 @@
       font-style: normal;
       font-weight: 600;
       font-size: 11px;
+      @include respond-to(848px) {font-size: 15px}
       line-height: 15px;
       color: #969696;
     }
   }
 
   &__submit {
-    position: absolute;
-    right: 25px;
-    bottom: 25px;
+    margin-top: 12px;
+    margin-bottom: 25px;
+    margin-left: 100%;
+    transform: translateX(-126px);
     padding: 10px 20px;
     background: #101010;
     border: 1px solid #0D1E4B;
@@ -218,6 +259,7 @@
 
   &__text {
     flex: 5.3374;
+    @include respond-to(1180px) {flex: 3;}
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -229,17 +271,34 @@
 .carousel {
   max-width: 1116px;
   @include respond-to(1180px) {width: 980px}
+  @include respond-to(1024px) {width: 875px}
+  @include respond-to(910px) {width: 100%}
   margin: 0 auto;
   max-height: 439px;
 
+  @include respond-to(848px) {
+    &:hover {
+          .carousel-slider .control-arrow {
+            opacity: 0.5;
+          }
+      };
+  }
+  
     .carousel-slider .control-arrow {
       top: 354px;
+      @include respond-to(848px) {top: 0};
       box-sizing: border-box;
       height: 40px;
+      @include respond-to(848px) {height: 100%};
       width: 40px;
+      @include respond-to(768px) {width: 80px}
       opacity: 1;
       border: 1px solid #FFFFFF;
       margin: 0 61px;
+      @include respond-to(848px) {
+        margin: 0;
+        opacity: 0;
+      };
 
       &:hover {
         background: #FFFFFF;
@@ -247,6 +306,10 @@
         &::before {
           border-top: 1.3px solid #0D1E4B;
           border-right: 1.3px solid #0D1E4B;
+          @include respond-to(768px) {
+            border-top: 5.3px solid #0D1E4B;
+            border-right: 5.3px solid #0D1E4B;
+          }
         }
       }
 
@@ -256,6 +319,12 @@
         height: 5px;
         border-top: 1.3px solid #FFFFFF;
         border-right: 1.3px solid #FFFFFF;
+        @include respond-to(768px) {
+          width: 20px;
+          height: 20px;
+          border-top: 5.3px solid #FFFFFF;
+          border-right: 5.3px solid #FFFFFF;
+        }
         transform: rotate(45deg);
         border-left: none;
         border-bottom: none;
@@ -268,7 +337,10 @@
 
     &__img {
       position: absolute;
-      top: calc(50% - 219.5px);
+      transform: translateY(-25%);
+      @include respond-to(1180px) {transform: translateY(-21.4%);}
+      @include respond-to(1024px) {transform: translateY(-17.9%);}
+      @include respond-to(848px) {transform: translateY(-15.9%);}
       left: 0;
       object-fit: none;
       object-position: 50% 50%;
@@ -278,4 +350,9 @@
       max-height: 439px;
     }
   }
+}
+
+.about_and_form {
+  justify-content: space-between;
+  @include respond-to(848px) {flex-direction: column}
 }

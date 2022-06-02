@@ -1,6 +1,11 @@
+@import '../../../adaptive/adaptive.scss';
+
 .profile {
     &__header {
         max-width: 1116px;
+        @include respond-to(1180px) {max-width: 980px};
+        @include respond-to(1024px) {width: 875px};
+        @include respond-to(910px) {width: 95%};
         margin-top: 36px;
         margin-left: auto;
         margin-right: auto;
@@ -21,6 +26,7 @@
     }
 
     &__space {
+        @include respond-to(1180px) {display: none};
         border: 1px solid #000000;
         box-sizing: border-box;
         height: 64px;
@@ -36,6 +42,12 @@
 
     &__data {
         max-width: 1116px;
+        @include respond-to(1180px) {max-width: 980px};
+        @include respond-to(1024px) {
+            width: 875px;
+            flex-wrap: wrap;
+        };
+        @include respond-to(910px) {width: 95%};
         margin: 0 auto;
         margin-top: -1px;
 
@@ -44,6 +56,7 @@
         }
 
         &-space {
+            @include respond-to(1180px) {display: none};
             height: 45px;
             border: 1px solid #000000;
 
@@ -58,6 +71,9 @@
 
         &-posts {
             max-width: 1116px;
+            @include respond-to(1180px) {max-width: 980px};
+            @include respond-to(1024px) {width: 875px};
+            @include respond-to(910px) {width: 95%};
             margin: 0 auto;
             text-align: start;
             box-sizing: border-box;
@@ -83,6 +99,9 @@
 
             &--active {
                 max-width: 1116px;
+                @include respond-to(1180px) {max-width: 980px};
+                @include respond-to(1024px) {width: 875px};
+                @include respond-to(910px) {width: 95%};
                 margin: 0 auto;
                 text-align: start;
                 box-sizing: border-box;
@@ -119,8 +138,13 @@
             color: #000000;
             white-space: nowrap;
 
-            &:nth-child(2) {
-               text-align: left;
+
+            @include respond-to(1024px) {
+                &:nth-child(-n+4) {
+                    text-align: left; 
+                    flex: auto;
+                    width: calc(100% / 3);
+                }
             }
 
             &:nth-child(6) {
@@ -137,6 +161,9 @@
 
 .post {
     max-width: 1116px;
+    @include respond-to(1180px) {max-width: 980px};
+    @include respond-to(1024px) {width: 875px};
+    @include respond-to(910px) {width: 95%};
     margin: 14px auto;
     padding-left: 53px;
     padding-right: 53px;
@@ -159,6 +186,7 @@
     &__item {
         position: relative;
         width: 48.489%;
+        @include respond-to(848px) {width: 100%};
         min-height: 143px;
         padding-left: 34.76px;
         padding-right: 34.91px;
@@ -169,13 +197,15 @@
             background-color: rgb(234, 234, 234);
             height: 100%;
             min-height: 143px;
-            h6 {
-                display: inline-table;
-            }
+            @include respond-to(848px) {min-height: 157px};
+
+            h6 {display: inline-table}
+            
             p {
                 height: 100%;
                 color: #000000;
             }
+            
             a {
                 display: block;
                 width: 100%;
@@ -198,6 +228,7 @@
             font-style: normal;
             font-weight: 700;
             font-size: 12px;
+            @include respond-to(848px) {font-size: 16px};
             line-height: 16px;
             text-transform: capitalize;
         }
@@ -210,10 +241,12 @@
             -webkit-line-clamp: 1;
             -webkit-box-orient: vertical;
             margin-top: 10px;
+            @include respond-to(910px) {margin-top: 20px};
             margin-bottom: 0;
             font-style: normal;
             font-weight: 700;
             font-size: 17px;
+            @include respond-to(848px) {font-size: 20px};
             line-height: 23px;
             text-transform: capitalize;
         }
@@ -221,6 +254,7 @@
         &-body {
             height: 85px;
             margin-top: 4px;
+            @include respond-to(848px) {margin-top: 10px};
             margin-left: 0.09px;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -231,6 +265,7 @@
             font-style: normal;
             font-weight: 400;
             font-size: 12px;
+            @include respond-to(848px) {font-size: 17px};
             line-height: 17px;
             color: rgba(0, 0, 0, 0.41);
         }

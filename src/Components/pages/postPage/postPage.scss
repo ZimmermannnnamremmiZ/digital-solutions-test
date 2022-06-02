@@ -1,3 +1,5 @@
+@import '../../../adaptive/adaptive.scss';
+
 .postSingle {
     &__header {
         margin-top: 40px;
@@ -51,6 +53,8 @@
         &-header {
             margin: 0;
             color: #000000e7;
+            @include respond-to(848px) {font-size: 20px}
+            
         }
 
         &-owner {
@@ -59,10 +63,12 @@
             font-style: normal;
             font-weight: 700;
             font-size: 14px;
+            @include respond-to(848px) {font-size: 16px};
         }
 
         &-title, &-body {
             color: rgba(0, 0, 0, 0.41);
+            @include respond-to(848px) {font-size: 17px};
             &::first-letter {
                 text-transform: uppercase;
             }
@@ -73,6 +79,7 @@
         margin-top: 25px;
         margin-bottom: 25px;
         height: 30px;
+        @include respond-to(848px) {height: 50px};
         margin-left: 50%;
         transform: translateX(-50%);
     }

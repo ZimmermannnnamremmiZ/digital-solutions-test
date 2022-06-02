@@ -2,37 +2,22 @@
   @if $media == 380px {
     @media only screen and (max-width: 380px) { @content; }
   }
-    @if $media == 400px {
-      @media only screen and (max-width: 400px) { @content; }
-    }
-    @if $media == 440px {
-      @media only screen and (max-width: 440px) { @content; }
-    }
-    @else if $media == 500px {
-      @media only screen and (max-width: 500px) { @content; }
-    }
-    @else if $media == 550px {
-      @media only screen and (max-width: 550px) { @content; }
-    }
-    @else if $media == 590px {
-      @media only screen and (max-width: 590px) { @content; }
-    }
-    @else if $media == 650px {
-      @media only screen and (max-width: 650px) { @content; }
-    }
-    @else if $media == 740px {
-      @media only screen and (max-width: 740px) { @content; }
-    }
-    @else if $media == 790px {
-      @media only screen and (max-width: 790px) { @content; }
-    }
-    @else if $media == 900px {
-      @media only screen and (max-width: 900px) { @content; }
-    }
-    @else if $media == 960px {
-      @media only screen and (max-width: 960px) { @content; }
-    }
-    @else if $media == 1180px {
-      @media only screen and (max-width: 1180px) { @content; }
-    }
+  @else if $media == 480px {
+    @media only screen and (max-width: 480px) { @content; }
+  }
+  @else if $media == 768px {
+    @media only screen and (max-width: 768px) { @content; }
+  }
+  @else if $media == 848px {
+    @media only screen and (max-width: 848px) { @content; }
+  }
+  @else if $media == 910px {
+    @media only screen and (max-width: 910px) { @content; }
+  }
+  @else if $media == 1024px {
+    @media only screen and (max-width: 1024px) { @content; }
+  }
+  @else if $media == 1180px {
+    @media only screen and (max-width: 1180px) { @content; }
+  }
 }

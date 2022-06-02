@@ -1,5 +1,6 @@
 import { useState, useEffect, useId, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel as SlickCarousel} from 'react-responsive-carousel';
@@ -23,6 +24,12 @@ const ProfilePage = () => {
       user: await getUser(userId),
       posts: [...await getUserPosts(userId)]
     })
+  }
+
+  // для изменения количества слайдов при изменении размера окна или разрешения экрана
+  const minWidth849px = useMediaQuery({ minWidth: 849 })
+  const widthForSlider = () => {
+      return minWidth849px ? 2 : 1
   }
 
   useEffect(() => {
@@ -62,9 +69,11 @@ const ProfilePage = () => {
               <SlickCarousel showStatus={false}
                              showIndicators={false}
                              showThumbs={false}
+                             swipeable={true}
+                             emulateTouch={true}
               >
                 {/* разбито на группы для разделения элементов по слайдам */}
-                {arrDivide(data.posts, 2).map(group => {
+                {arrDivide(data.posts, widthForSlider()).map(group => {
                   return <div className='post__slide' key={id}>
                             {group.map((post) => (
                               <div className='post__item' key={post.id}>

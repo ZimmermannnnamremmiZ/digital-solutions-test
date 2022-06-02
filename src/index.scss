@@ -21,6 +21,11 @@ h2 {
 .container {
   width: 995px;
   @include respond-to(1180px) {width: 857px};
+  @include respond-to(1024px) {width: 750px};
+  @include respond-to(910px) {
+    width: 88.7vw;
+    padding: 0;
+  };
   padding: 0 61px;
   margin: 0 auto;
 }

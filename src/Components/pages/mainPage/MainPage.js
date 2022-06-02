@@ -56,7 +56,7 @@ import slide from '../../../resources/img/slide.png'
                         <ErrorBoundary>
                             <UserList />
                         </ErrorBoundary>
-                        <div className="flex">
+                        <div className="about_and_form flex">
                             <div className='aboutPlatform'>
                                 <h2 className='aboutPlatform__title'>О площадке</h2>
                                 <ErrorBoundary>
