@@ -9,8 +9,6 @@ const PostPage = () => {
     const isMounted = useRef();
     const {postId} = useParams();
     const [data, setData] = useState({post: {}, comments: []});
-    // const [post, setPost] = useState({})
-    // const [comments, setComments] = useState([])
     const [form, setForm] = useState(true)
     const [comEmail, setComEmail] = useState('')
     const [comName, setComName] = useState('')
@@ -40,8 +38,6 @@ const PostPage = () => {
         e.preventDefault()
         postComment(id, comName, comBody, comEmail, postId)
     }
-
-    console.log('render')
 
     return(
         <div className='container'>

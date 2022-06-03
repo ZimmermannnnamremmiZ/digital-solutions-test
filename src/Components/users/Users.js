@@ -14,13 +14,16 @@ const Users = ({users}) => {
     // для изменения количества слайдов при изменении размера окна или разрешения экрана
     const minWidth1024px = useMediaQuery({ minWidth: 1024 })
     const minWidth849px = useMediaQuery({ minWidth: 849 })
+    const minWidth601px = useMediaQuery({ minWidth: 601 })
     const widthForSlider = () => {
         if (minWidth1024px) {
             return 4
         } else if (minWidth849px) {
             return 3
-        } else {
+        } else if (minWidth601px) {
             return 2
+        } else {
+            return 1
         }
     }
 
@@ -34,14 +37,14 @@ const Users = ({users}) => {
                            swipeable={true}
             >
                     {arrDivide(users, widthForSlider()).map(group => {
-                        return <div className="flex" key={id}>{
-                                group.map(user => (
-                                    <div className="user" key={user.id}>
-                                        <div className="user__name">{user.fullName}</div>
-                                        <div className="user__city">{user.city}</div>
-                                        <Link to={`/users/${user.id}`} href={user.homepage}>Смотреть профиль</Link>
-                                    </div>
-                                ))}
+                        return <div className="slideUser" key={id}>{
+                                    group.map(user => (
+                                        <div className="user" key={user.id}>
+                                            <div className="user__name">{user.fullName}</div>
+                                            <div className="user__city">{user.city}</div>
+                                            <Link to={`/users/${user.id}`} href={user.homepage}>Смотреть профиль</Link>
+                                        </div>
+                                    ))}
                                 </div>
                     })}
             </SlickCarousel>

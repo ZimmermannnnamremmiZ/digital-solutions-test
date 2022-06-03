@@ -5,6 +5,12 @@
   @else if $media == 480px {
     @media only screen and (max-width: 480px) { @content; }
   }
+  @else if $media == 600px {
+    @media only screen and (max-width: 600px) { @content; }
+  }
+  @else if $media == 680px {
+    @media only screen and (max-width: 680px) { @content; }
+  }
   @else if $media == 768px {
     @media only screen and (max-width: 768px) { @content; }
   }

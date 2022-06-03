@@ -84,6 +84,7 @@
             line-height: 17px;
             color: #000000;
             padding: 14px 64px;
+            @include respond-to(480px) {padding: 14px 30px}
 
             &:hover {
                 background-color: rgb(234, 234, 234);
@@ -112,6 +113,7 @@
                 line-height: 17px;
                 color: #000000;
                 padding: 14px 64px;
+                @include respond-to(480px) {padding: 14px 30px}
 
                 &:hover {
                     background-color: rgb(234, 234, 234);
@@ -147,6 +149,15 @@
                 }
             }
 
+            @include respond-to(768px) {
+                &:nth-child(-n+4) {
+                    text-align: left; 
+                    flex: 1;
+                    width: auto;
+                }
+            }
+
+
             &:nth-child(6) {
                 text-align: start;
                 padding-top: 5px;
@@ -167,6 +178,10 @@
     margin: 14px auto;
     padding-left: 53px;
     padding-right: 53px;
+    @include respond-to(768px) {
+        padding-left: 20px;
+        padding-right: 20px;
+    };
     padding-bottom: 22px;
     border: 1px solid #000000;
     box-sizing: border-box;
@@ -177,6 +192,7 @@
 
     &__title {
         margin-top: 27px;
+        @include respond-to(768px) {margin-top: 15px}
         margin-bottom: 15px;
         font-weight: 500;
         font-size: 35px;
@@ -188,6 +204,7 @@
         width: 48.489%;
         @include respond-to(848px) {width: 100%};
         min-height: 143px;
+        @include respond-to(768px) {min-height: 270px};
         padding-left: 34.76px;
         padding-right: 34.91px;
         border: 1px solid #000000;
@@ -198,6 +215,7 @@
             height: 100%;
             min-height: 143px;
             @include respond-to(848px) {min-height: 157px};
+            @include respond-to(768px) {min-height: 270px};
 
             h6 {display: inline-table}
             
@@ -242,6 +260,7 @@
             -webkit-box-orient: vertical;
             margin-top: 10px;
             @include respond-to(910px) {margin-top: 20px};
+            @include respond-to(480px) {margin-top: 40px};
             margin-bottom: 0;
             font-style: normal;
             font-weight: 700;
@@ -281,5 +300,10 @@
 .carousel  {
     .control-prev.control-arrow:before {
       transform: none;
+      
+    }
+
+    .control-arrow {
+        @include respond-to(768px) {width: 100px};
     }
 }

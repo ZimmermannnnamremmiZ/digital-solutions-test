@@ -1,7 +1,18 @@
+@import '../../adaptive/adaptive.scss';
+
 .users__list {
   .carousel  {
     .control-prev.control-arrow:before {
       transform: none;
     }
   }
+  .carousel-slider .control-arrow {
+    @include respond-to(768px) {width: 100px}
+
+    &:hover {
+      @include respond-to(768px) {width: 100px}
+    }
+  }
 }
+
+

@@ -21,6 +21,7 @@
         font-weight: 500;
         font-size: 20px;
         line-height: 40px;
+        @include respond-to(600px) {line-height: 25px};
         color: rgba(0, 0, 0, 0.41);
 
         &::first-letter {
@@ -45,6 +46,7 @@
         position: relative;
         border: 1px solid;
         padding: 25px 40px;
+        @include respond-to(680px) {padding: 40px 25px 25px 25px}
         
         &:not(:nth-child(1)) {
             margin-top: 10px;
@@ -60,6 +62,10 @@
         &-owner {
             position: absolute;
             right: 40px;
+            @include respond-to(680px) {
+                top: 10px;
+                right: 17px;
+            };
             font-style: normal;
             font-weight: 700;
             font-size: 14px;
@@ -69,64 +75,98 @@
         &-title, &-body {
             color: rgba(0, 0, 0, 0.41);
             @include respond-to(848px) {font-size: 17px};
-            &::first-letter {
-                text-transform: uppercase;
-            }
+            &::first-letter {text-transform: uppercase};
+            
+            @include respond-to(680px) {margin: 10px auto}
         }
+
     }
       
     &__add {
         margin-top: 25px;
         margin-bottom: 25px;
         height: 30px;
-        @include respond-to(848px) {height: 50px};
+        @include respond-to(848px) {
+            height: 50px;
+            font-size: 17px;
+        };
         margin-left: 50%;
         transform: translateX(-50%);
     }
 }    
 
 .form {
+    @include respond-to(680px) {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0;
+        width: 100%;
+        box-sizing: border-box
+    };
     padding: 40px;
+    @include respond-to(768px) {padding: 25px};
     margin-top: 100px;
     display: flex;
     align-items: center;
     flex-direction: column;
     min-height: 60vh;
+    @include respond-to(768px) {min-height: 50vh};
     border: 1px solid;
 
     &__item{
         position: relative;
         margin-top: 6%;
+        @include respond-to(680px) {width: 100%}
+        @include respond-to(600px) {margin-top: 10%}
 
         &-label {
             position: absolute;
             top: -30px;
             font-size: 20px;
+            @include respond-to(480px) {font-size: 18px}
         }
 
         &-input {
             min-width: 500px;
+            @include respond-to(680px) {
+                min-width: auto;
+                width: 90%
+            };
             height: 40px;
             padding: 0 20px;
             font-family: Open Sans;
             font-weight: 500;
             font-size: 17px;
             color: rgba(0, 0, 0, 0.41);
+            border: 1px solid;
         }
 
         &-textarea {
             min-width: 500px;
+            @include respond-to(680px) {
+                min-width: 90%;
+            }
             max-width: 500px;
+            @include respond-to(680px) {
+                max-width: 90%;
+            }
             height: 200px;
             padding: 20px;
             font-family: Open Sans;
             font-weight: 500;
             font-size: 17px;
             color: rgba(0, 0, 0, 0.41);
+            border: 1px solid;
         }
     }
 
     &__submit {
         height: 35px;
+        @include respond-to(768px) {
+            height: 50px;
+            font-size: 17px;
+            margin-top: 15px;
+        }
     }
 }

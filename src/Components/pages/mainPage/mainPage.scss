@@ -17,6 +17,7 @@ main {
   @include respond-to(910px) {width: 100%}
   position: absolute;
   height: 439px;
+  @include respond-to(680px) {height: 320px;}
   text-align: center;
   left: 50%;
   transform: translateX(-50%);
@@ -34,7 +35,9 @@ main {
     position: absolute;
     width: 100%;
     margin-top: 157px;
+    @include respond-to(680px) {margin-top: 70px}
     font-size: 50px;
+    @include respond-to(480px) {font-size: 35px}
     line-height: 60px;
   }
 
@@ -42,7 +45,9 @@ main {
     position: absolute;
     width: 100%;
     margin-top: 222px;
+    @include respond-to(680px) {margin-top: 145px}
     font-size: 30px;
+    @include respond-to(480px) {font-size: 27px}
     line-height: 36px;
   }
 
@@ -58,14 +63,15 @@ main {
     left: 50%;
     transform: translateX(-50%);
     top: 354px;
+    @include respond-to(680px) {top: 240px}
     z-index: 1;
   }
 
   .rectangle {
+    @include respond-to(768px) {display: none}
     position: absolute;
     width: 1116px;
-    @include respond-to(1180px) {width: 980px}
-    @include respond-to(910px) {width: 100%}
+    @include respond-to(1180px) {width: 100%}
     height: 282px;
     left: 50%;
     transform: translateX(-50%) matrix(1, 0, 0, -1, 0, 0);
@@ -79,11 +85,12 @@ main {
   position: absolute;
   width: 1017px;
   @include respond-to(1180px) {width: 880px}
-  @include respond-to(1180px) {width: 795px}
+  @include respond-to(1024px) {width: 90%}
   height: 156px;
   left: 50%;
   transform: translateX(-50%);
   top: 190px;
+  @include respond-to(680px) {top: 100px}
   background: radial-gradient(50% 50% at 50% 50%, #000000 0%, rgba(0, 0, 0, 0) 100%);
   z-index: 1;
 }
@@ -92,10 +99,12 @@ main {
   position: absolute;
   width: 593px;
   @include respond-to(1180px) {width: 512px}
+  @include respond-to(768px) {width: 50%}
   height: 156px;
   left: 50%;
   transform: translateX(-50%);
   top: 238px;
+  @include respond-to(680px) {top: 170px}
   background: radial-gradient(50% 50% at 50% 50%, #000000 0%, rgba(0, 0, 0, 0) 100%);
   z-index: 1;
 }
@@ -107,6 +116,7 @@ main {
     font-style: normal;
     font-weight: 500;
     font-size: 35px;
+    @include respond-to(480px) {font-size: 30px}
     line-height: 40px;
   }
 
@@ -174,37 +184,41 @@ main {
 }
 
 .application {
-  margin-top: 47px;
   position: relative;
-  width: 55.98%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 11px 25px 0 25px;
+  margin-top: 47px;
+  width: 56.181%;
   @include respond-to(848px) {
-    flex: none;
     width: 100%;  
   }
   min-height: 272px;
+  @include respond-to(480px) {min-height: 320px}
   border: 1px solid #DADADA;
   text-align: center;
 
   &__title {
     text-align: left;
-    margin-left: 26px;
-    margin-top: 13px;
+    margin-top: 0;
     margin-bottom: 9px;
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
     line-height: 40px;
+    @include respond-to(480px) {line-height: 25px}
   }
 
   &__textarea {
     box-sizing: border-box;
     padding: 10px 20px;
-    width: 90.165%;
-    max-width: 90.165%;
-    min-width: 90.165%;
+    @include respond-to(480px) {padding: 10px}
+    max-width: 100%;
+    min-width: 100%;
     border: 1px solid #0D1E4B;
     min-height: 134px;
-    margin: 0 25px;
+    @include respond-to(480px) {min-height: 200px}
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 600;
@@ -226,19 +240,29 @@ main {
   }
 
   &__submit {
-    margin-top: 12px;
+    margin-top: 16px;
     margin-bottom: 25px;
-    margin-left: 100%;
-    transform: translateX(-126px);
+    margin-left: auto;
     padding: 10px 20px;
     background: #101010;
     border: 1px solid #0D1E4B;
     width: 101px;
     height: 35px;
+    @include respond-to(600px) {
+      height: 50px;
+      width: 170px;
+    }
+
+    @include respond-to(848px) {
+      height: auto;
+      width: 140px;
+    }
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 600;
     font-size: 11px;
+    @include respond-to(848px) {font-size: 13px}
+    @include respond-to(600px) {font-size: 17px}
     line-height: 15px;
     text-transform: capitalize;
     color: #FFFFFF;
@@ -248,6 +272,7 @@ main {
 .about {
   margin-top: 48px;
   margin-bottom: 38px;
+  @include respond-to(600px) {flex-direction: column}
 
   &__title {
     margin-top: -20px;
@@ -255,11 +280,13 @@ main {
     font-weight: 500;
     font-size: 35px;
     line-height: 40px;
+    @include respond-to(600px) {margin-bottom: 0;}
   }
 
   &__text {
     flex: 5.3374;
     @include respond-to(1180px) {flex: 3;}
+    @include respond-to(680px) {flex: 2;}
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -275,6 +302,7 @@ main {
   @include respond-to(910px) {width: 100%}
   margin: 0 auto;
   max-height: 439px;
+  @include respond-to(680px) {max-height: 320px;}
 
   @include respond-to(848px) {
     &:hover {
@@ -337,10 +365,8 @@ main {
 
     &__img {
       position: absolute;
-      transform: translateY(-25%);
-      @include respond-to(1180px) {transform: translateY(-21.4%);}
-      @include respond-to(1024px) {transform: translateY(-17.9%);}
-      @include respond-to(848px) {transform: translateY(-15.9%);}
+      height: 439px;
+      @include respond-to(680px) {height: 320px;}
       left: 0;
       object-fit: none;
       object-position: 50% 50%;
@@ -348,6 +374,7 @@ main {
     &-container {
       overflow: hidden;
       max-height: 439px;
+      @include respond-to(680px) {max-height: 320px;}
     }
   }
 }
