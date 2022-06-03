@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+## SPA на React (Тестовое задание) 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Само задание
+
+<img src='https://user-images.githubusercontent.com/69976961/171835109-b9f54c82-e87d-4adc-9a3f-1a4bb9a6ae7d.jpg' width="auto" height="500"></img>
+
+Для данного приложения Redux и TS решил не использовать
 
 ## Available Scripts
 
