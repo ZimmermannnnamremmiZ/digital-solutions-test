@@ -6,6 +6,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel as SlickCarousel} from 'react-responsive-carousel';
 import arrDivide from "../../../utils/divideArray";
 import useApi from '../../../api';
+import Spinner from "../../../Components/spinner/Spinner";
 
 
 import './profilePage.scss';
@@ -17,7 +18,7 @@ const ProfilePage = () => {
   const [data, setData] = useState({user: false, posts: []});
   const [active, setActive] = useState(false)
 
-  const {getUser, getUserPosts} = useApi();
+  const {getUser, getUserPosts, process, setProcess} = useApi();
 
   const fetchData = async () => {
     setData({
@@ -37,8 +38,14 @@ const ProfilePage = () => {
     if (isMounted.current) return;
     isMounted.current = true;
 
+    setProcess('loading')
     fetchData()
+      .then(() => setProcess('confirmed'))
   }, [userId])
+
+  const checkLoading = (el) => {
+    return process === 'confirmed' ? el : <Spinner/>
+  }
 
   return(
     <>
@@ -62,7 +69,7 @@ const ProfilePage = () => {
           </div>
               <ul className={active ? 'profile__data-posts--active' : 'profile__data-posts'} onClick={() => setActive(!active)}>
                 {/* как в задании, список из 3-х превью */}
-                {data.posts.map(el => <li key={el.id}>{el.title}</li>)}
+                {checkLoading(data.posts.map(el => <li key={el.id}>{el.title}</li>))}
               </ul>
           <div className='post'>
             <h2 className='post__title'>Посты</h2>
@@ -73,7 +80,7 @@ const ProfilePage = () => {
                              emulateTouch={true}
               >
                 {/* разбито на группы для разделения элементов по слайдам */}
-                {arrDivide(data.posts, widthForSlider()).map(group => {
+                {checkLoading(arrDivide(data.posts, widthForSlider()).map(group => {
                   return <div className='post__slide' key={id}>
                             {group.map((post) => (
                               <div className='post__item' key={post.id}>
@@ -84,7 +91,7 @@ const ProfilePage = () => {
                               </div>
                             ))}
                           </div>
-                })}
+                }))}
               </SlickCarousel>
           </div>
         </div>

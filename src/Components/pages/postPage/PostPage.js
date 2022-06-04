@@ -2,25 +2,28 @@ import { useEffect, useRef, useState, useId } from 'react';
 import { useParams } from 'react-router-dom';
 
 import useApi from '../../../api';
+import Spinner from '../../spinner/Spinner';
 import './postPage.scss';
 
 const PostPage = () => {
     const id = useId();
     const isMounted = useRef();
     const {postId} = useParams();
-    const [data, setData] = useState({post: {}, comments: []});
+    const [data, setData] = useState({post: [], comments: []});
     const [form, setForm] = useState(true)
     const [comEmail, setComEmail] = useState('')
     const [comName, setComName] = useState('')
     const [comBody, setComBody] = useState('')
-    const {getPostComments, getPost, postComment} = useApi();
+    const {getPostComments, getPost, postComment, process, setProcess} = useApi();
 
     useEffect(() => {
     // для React 18, чтобы не было по 2 fetch запроса в network
         if (isMounted.current) return;
         isMounted.current = true;
 
+        setProcess('loading')
         fetchData()
+          .then(() => setProcess('confirmed'))
     }, [postId])
 
     const fetchData = async () => {
@@ -33,11 +36,15 @@ const PostPage = () => {
     const onAddComment = () => {
         setForm(!form)
     }
-    
+
     const handleSubmit = (e) => {
         e.preventDefault()
         postComment(id, comName, comBody, comEmail, postId)
     }
+
+    const checkLoading = (el) => {
+        return process === 'confirmed' ? el : <Spinner/>
+      }
 
     return(
         <div className='container'>
@@ -45,13 +52,13 @@ const PostPage = () => {
             ? <>
                 <div className='postSingle'>
                     <div className='postSingle__header'>Название поста</div>
-                    <h4 className='postSingle__title'>{data.post.title}</h4>
+                    <h4 className='postSingle__title'>{checkLoading(data.post.title)}</h4>
                     <div className='postSingle__header'>Содержимое поста</div>
-                    <p className='postSingle__body'>{data.post.body}</p>
+                    <p className='postSingle__body'>{checkLoading(data.post.body)}</p>
                 </div>
                 <div className='comments'>
                     <div className='comments__header'>Комментарии</div>
-                    {data.comments.map(comment => {
+                    {checkLoading(data.comments.map(comment => {
                         return(
                             <div className='comments__item' key={comment.id}>
                                 <div className='comments__item-owner'>{comment.email}</div>
@@ -61,9 +68,9 @@ const PostPage = () => {
                                 <p className='comments__item-body'>{comment.body}</p>
                             </div>
                         )
-                    })}
+                    }))}
                 </div>
-                <button className='comments__add' onClick={onAddComment}>Добавить комментарий</button>
+                {process === 'confirmed' ? <button className='comments__add' onClick={onAddComment}>Добавить комментарий</button> : null}
               </>
             : <form className='form' onSubmit={handleSubmit}>
                 <div className='form__item'>

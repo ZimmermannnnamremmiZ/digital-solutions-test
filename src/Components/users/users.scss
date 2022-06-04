@@ -18,8 +18,7 @@
   &:not(:nth-child(4n+4)) {
     margin-right: 13px;
     @include respond-to(1180px) {margin-right: 11px}
-    @include respond-to(1024px) {margin-right: 12px}
-    @include respond-to(768px) {margin-right: 0}
+    @include respond-to(848px) {margin-right: 0}
   }
 
   &:hover {
@@ -90,6 +89,6 @@
 
 .slideUser {
   display: flex;
-  justify-content: space-between;
+  @include respond-to(848px) {justify-content: space-between;}
 }
 

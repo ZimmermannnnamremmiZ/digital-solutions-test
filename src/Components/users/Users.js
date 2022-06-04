@@ -27,7 +27,6 @@ const Users = ({users}) => {
         }
     }
 
-
     return (
         <>
             <SlickCarousel showStatus={false}
